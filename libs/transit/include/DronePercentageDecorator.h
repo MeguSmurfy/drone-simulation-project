@@ -39,7 +39,7 @@ class DronePercentageDecorator : public IPercentageDecorator {
    * This method is used to update the decorator with the percentage
    * of the route traveled so far.
    *
-   * @param dt Time delta for updating the decorator's state.
+   * @param dt Distance delta for updating the decorator's percentage.
    */
   void update(double dt);
 };
