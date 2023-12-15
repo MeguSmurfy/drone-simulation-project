@@ -20,7 +20,7 @@ class Package;
 class Drone : public IEntity {
  public:
   /**
-   * @brief Drones are created with a name
+   * @brief Drones are created with a name.
    * @param obj JSON object containing the drone's information
    */
   Drone(JsonObject& obj);
@@ -29,13 +29,21 @@ class Drone : public IEntity {
    * @brief Destructor
    */
   ~Drone();
-
+  
+  /**
+  * @brief Returns the private boolean indicating
+  * if the drone is available or occupied.
+  */
   bool getAvailability();
-
+ 
+  /**
+  * @brief Returns a Package object provided the drone
+  * is carrying one.
+  */
   Package* getPackage();
   
   /**
-   * @brief Gets the next delivery in the scheduler
+   * @brief Gets the next delivery in the scheduler.
    */
   void getNextDelivery();
 
