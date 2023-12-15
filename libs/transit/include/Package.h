@@ -56,6 +56,8 @@ class Package : public IEntity {
   */
   void handOff();
 
+  Robot* getOwner();
+
   bool requiresDelivery = true;
 
  private:

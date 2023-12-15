@@ -10,6 +10,7 @@
 #include <deque>
 #include <map>
 #include <set>
+#include "Publisher.h"
 
 //--------------------  Model ----------------------------
 
@@ -77,6 +78,10 @@ class SimulationModel {
   */
   const routing::IGraph* getGraph();
 
+  void Attach(int id);
+
+  void Detach();
+
   std::deque<Package*> scheduledDeliveries;
 
  protected:
@@ -86,6 +91,7 @@ class SimulationModel {
   void removeFromSim(int id);
   const routing::IGraph* graph;
   CompositeFactory entityFactory;
+  Publisher* publisher;
 };
 
 #endif

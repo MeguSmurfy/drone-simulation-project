@@ -5,6 +5,9 @@
 #include "RobotFactory.h"
 #include "HumanFactory.h"
 #include "HelicopterFactory.h"
+#include "DroneObserver.h"
+#include "PackageObserver.h"
+#include "RobotObserver.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -13,6 +16,7 @@ SimulationModel::SimulationModel(IController& controller)
   entityFactory.AddFactory(new RobotFactory());
   entityFactory.AddFactory(new HumanFactory());
   entityFactory.AddFactory(new HelicopterFactory());
+  publisher = new Publisher();
 }
 
 SimulationModel::~SimulationModel() {
@@ -21,10 +25,12 @@ SimulationModel::~SimulationModel() {
     delete entity;
   }
   delete graph;
+  delete publisher;
 }
 
 IEntity* SimulationModel::createEntity(JsonObject& entity) {
   std::string name = entity["name"];
+  std::string type = entity["type"];
   JsonArray position = entity["position"];
   std::cout << name << ": " << position << std::endl;
 
@@ -34,6 +40,20 @@ IEntity* SimulationModel::createEntity(JsonObject& entity) {
     myNewEntity->linkModel(this);
     controller.addEntity(*myNewEntity);
     entities[myNewEntity->getId()] = myNewEntity;
+  }
+
+  IObserver* observer = nullptr;
+  
+  if (type == "drone") {
+    observer = new DroneObserver(reinterpret_cast<Drone*>(myNewEntity));
+  } else if (type == "package") {
+    observer = new PackageObserver(reinterpret_cast<Package*>(myNewEntity));
+  } else if (type == "robot") {
+    observer = new RobotObserver(reinterpret_cast<Robot*>(myNewEntity));
+  }
+
+  if (observer) {
+    publisher->AddObserver(observer);
   }
 
   return myNewEntity;
@@ -95,10 +115,22 @@ void SimulationModel::update(double dt) {
     entity->update(dt);
     controller.updateEntity(*entity);
   }
+
   for (int id : removed) {
     removeFromSim(id);
   }
   removed.clear();
+
+  std::string message = "";
+  std::vector<std::string> notifications = publisher->NotifyObserver(dt);
+  for (int i = 0; i < notifications.size(); i++) {
+    if (notifications.at(i) != "") {
+      message += notifications.at(i);
+    }
+  }
+  if (message != "") {
+    std::cout << message << std::endl;
+  }
 }
 
 void SimulationModel::stop(void) {
@@ -119,4 +151,12 @@ void SimulationModel::removeFromSim(int id) {
     entities.erase(id);
     delete entity;
   }
+}
+
+void SimulationModel::Attach(int id) {
+  publisher->Attach(id);
+}
+
+void SimulationModel::Detach() {
+  publisher->Detach();
 }

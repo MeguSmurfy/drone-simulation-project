@@ -26,6 +26,10 @@ void Package::initDelivery(Robot* owner) {
   destination = owner->getPosition();
 }
 
+Robot* Package::getOwner() {
+  return owner;
+}
+
 void Package::handOff() {
   if (owner) {
     owner->receive(this);

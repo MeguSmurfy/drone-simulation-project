@@ -38,6 +38,8 @@ class Robot : public IEntity {
   */
   void receive(Package* p);
 
+  Package* getPackage();
+
   bool requestedDelivery = true;
 
  protected:

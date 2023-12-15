@@ -109,3 +109,11 @@ void Drone::update(double dt) {
     }
   }
 }
+
+bool Drone::getAvailability() {
+  return available;
+}
+
+Package* Drone::getPackage() {
+  return package;
+}
