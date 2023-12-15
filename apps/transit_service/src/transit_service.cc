@@ -52,10 +52,13 @@ public:
                 sendEntity("UpdateEntity", *entity);
             }
         }
-        else if (cmd == "stopSimulation")
-        {
+        else if (cmd == "stopSimulation") {
             std::cout << "Stop command administered\n";
             model.stop();
+        } else if (cmd == "Detach") {
+            model.Detach();
+        } else if (cmd == "Attach") {
+            model.Attach(std::stoi(data["ID"]));
         }
     }
 

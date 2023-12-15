@@ -33,6 +33,19 @@
 			display: block;
 			padding: 10px;
 		}
+		
+		#observer_menu {
+			background-color: black;
+			opacity: 0.8;
+			position: absolute;
+			top: 10px;
+			right: 180px;
+			text-align: left;
+			color: white;
+			z-index: 100;
+			display: block;
+			padding: 10px;
+		}
 
 		#scene-container {
 			position: absolute;
@@ -77,6 +90,11 @@
 			<br><a href="schedule.html" target="_blank"><button>Schedule Page</button></a>
 			<br><button onclick='stopSimulation()'>Stop Simulation</button>
 		</div>
+	</div>
+	<div id="observer_menu">
+		<div>Change Observed Entity:<br> <select id="observerSelect" onchange='changeObserver()'>
+				<option value="-1">Select entity...</option>
+			</select></div>
 	</div>
 	<div id="scene-container"></div>
 	<!-- Include the "main" graphics script and run it. -->

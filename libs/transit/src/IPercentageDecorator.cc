@@ -6,5 +6,5 @@ IPercentageDecorator::IPercentageDecorator(IObserver* observer) {
 
 IPercentageDecorator::~IPercentageDecorator() {
   // Delete dynamically allocated variables
-  if (strategy) delete strategy;
+  if (observer) delete observer;
 }

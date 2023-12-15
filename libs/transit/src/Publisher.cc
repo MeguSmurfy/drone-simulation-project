@@ -1,4 +1,5 @@
 #include "Publisher.h"
+#include <iostream>
 
 Publisher::Publisher() {
   attachedObserver = -1;
@@ -31,7 +32,7 @@ std::vector<std::string> Publisher::NotifyObserver(double dt) {
   } else {
     result.clear();
     for (int i = 0; i < observers.size(); i++) {
-      if (i != attachedObserver) {
+      if (observers.at(i)->GetId() != attachedObserver) {
         observers.at(i)->Update(dt);
       } else {
         result.push_back(observers.at(i)->Update(dt));

@@ -104,6 +104,9 @@ $( document ).ready(function() {
           //console.log(data);
           removeEntity(data.details.id);
         }
+        if (data.event == "Notify") {
+          displayNotification(data.details);
+        }
       }
     }
   }
@@ -180,6 +183,18 @@ function changeView() {
   }
 }
 
+function changeObserver() {
+  currentObserver = $("#observerSelect").val();
+  console.log("Current observer:", currentObserver);
+  if (currentObserver < 0) {
+    api.sendCommand("Detach", {});
+  } else {
+    data = {"ID": currentObserver};
+    console.log("Data:", data);
+    api.sendCommand("Attach", data);
+  }
+}
+
 // This function builds the initial campus/city scene.
 function loadScene(file, initialScene = true) {
   sceneFile = file;
@@ -210,6 +225,11 @@ function loadScene(file, initialScene = true) {
       socket.send(JSON.stringify({command: "runScript", "script": json}));
     }*/
   });
+}
+
+function displayNotification(data) {
+  notifbar = document.getElementById("notification-bar");
+  notifbar.textContent += data.info;
 }
 
 function displayJSON(data) {
@@ -462,6 +482,9 @@ const onLoad = ( gltf, position, scale, start, duration, details, id ) => {
 // This function is called whenever a new object needs to be added to the scene.
 function addEntity(data) {
   $("#entitySelect").append($('<option value="' + data.id + '">' + data.details.name + '</option>'));
+  if (data.details.type == "drone" || data.details.type == "package" || data.details.type == "robot") {
+    $("#observerSelect").append($('<option value="' + data.id + '">' + data.details.name + '</option>'));
+  }
   // the loader will report the loading progress to this function
   const onProgress = () => {};
   // the loader will send any error messages to this function, and we'll log
@@ -490,6 +513,9 @@ function removeEntity(id) {
   delete entities[id];
   if (currentView == id) {
     currentView = -1;
+  }
+  if (currentObserver == id) {
+    currentObserver = -1;
   }
   console.log(models);
 }

@@ -129,7 +129,9 @@ void SimulationModel::update(double dt) {
     }
   }
   if (message != "") {
-    std::cout << message << std::endl;
+    JsonObject messageObject;
+    messageObject["info"] = message;
+    controller.sendEventToView("Notify", messageObject);
   }
 }
 
