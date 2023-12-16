@@ -7,11 +7,18 @@ DroneObserver::DroneObserver(Drone* drone) {
   pickedUp = false;
   gettingToDestination = false;
   arrived = false;
+  initPos = Vector3();
+  type = "Drone";
   packageName = "";
+}
+
+DroneObserver::~DroneObserver() {
+  if (drone) delete drone;
 }
 
 std::string DroneObserver::Update(double dt) {
   if (!drone->getAvailability()) {
+    progress = (drone->getPosition().dist(initPos))/(drone->getPackage()->getDestination().dist(initPos));
     if (!pickedUp) {
       if (!gettingToPackage) {
         packageName = (std::string) drone->getPackage()->getDetails()["name"];
@@ -33,6 +40,7 @@ std::string DroneObserver::Update(double dt) {
     gettingToPackage = false;
     pickedUp = false;
     gettingToDestination = false;
+    initPos = drone->getPosition();
     if (arrived) {
       arrived = false;
       return name + " has delivered " + packageName + " to the final destination.\n";

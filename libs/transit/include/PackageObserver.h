@@ -33,7 +33,7 @@ class PackageObserver: public IObserver {
    /**
    * @brief Destructor for PackageObserver.
    */
-  ~PackageObserver() {}
+  ~PackageObserver();
  
    /**
    * @brief Updates the observer based on the observed Package's state.
@@ -58,6 +58,8 @@ class PackageObserver: public IObserver {
   std::string ownerName;   ///< Name of the owner of the package.
   bool setForDelivery;     ///< Flag indicating if the package is set for delivery.
   bool delivered;          ///< Flag indicating if the package has been delivered.
+  bool setIntialPosition;
+  Vector3 initPos;
 };
 
 #endif

@@ -8,7 +8,7 @@
 class RobotObserver: public IObserver {
  public:
   RobotObserver(Robot* robot);
-  ~RobotObserver() {}
+  ~RobotObserver();
   std::string Update(double dt);
   int GetId();
  private:

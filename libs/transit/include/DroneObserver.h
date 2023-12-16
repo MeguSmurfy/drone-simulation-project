@@ -32,7 +32,7 @@ class DroneObserver: public IObserver {
   /**
    * @brief Destructor for DroneObserver.
    */
-  ~DroneObserver() {}
+  ~DroneObserver();
  
   /**
    * @brief Updates the observer based on the observed Drone's state.
@@ -51,6 +51,7 @@ class DroneObserver: public IObserver {
    * @return int The ID of the Drone being observed.
    */
   int GetId();
+  
  private:
   Drone* drone;
   std::string name;
@@ -58,6 +59,7 @@ class DroneObserver: public IObserver {
   bool gettingToDestination;
   bool pickedUp;
   bool arrived;
+  Vector3 initPos;
   std::string packageName;
 };
 

@@ -43,9 +43,13 @@ class IPercentageDecorator : public IObserver {
    * This method should be overridden to provide specific update 
    * functions in decorators that use this interface.
    *
-   * @param dt Relevant data for the update process (specific to concrete Decorator).
+   * @param dt Delta time.
    */
-  virtual void update(double dt);
+  virtual std::string Update(double dt);
+
+  virtual std::string DisplayPercentageThreshold(double dt) = 0;
+
+  virtual int GetId() {return observer->GetId();}
 };
 
 #endif

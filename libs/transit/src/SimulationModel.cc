@@ -8,6 +8,7 @@
 #include "DroneObserver.h"
 #include "PackageObserver.h"
 #include "RobotObserver.h"
+#include "PercentageDecorator.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -45,9 +46,9 @@ IEntity* SimulationModel::createEntity(JsonObject& entity) {
   IObserver* observer = nullptr;
   
   if (type == "drone") {
-    observer = new DroneObserver(reinterpret_cast<Drone*>(myNewEntity));
+    observer = new PercentageDecorator(new DroneObserver(reinterpret_cast<Drone*>(myNewEntity)));
   } else if (type == "package") {
-    observer = new PackageObserver(reinterpret_cast<Package*>(myNewEntity));
+    observer = new PercentageDecorator(new PackageObserver(reinterpret_cast<Package*>(myNewEntity)));
   } else if (type == "robot") {
     observer = new RobotObserver(reinterpret_cast<Robot*>(myNewEntity));
   }

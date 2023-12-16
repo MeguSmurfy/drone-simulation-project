@@ -1,7 +1,8 @@
 /**
  * @file IObserver.h
  * @brief Header file for the IObserver interface.
- */#ifndef I_OBSERVER_H_
+ */
+#ifndef I_OBSERVER_H_
 #define I_OBSERVER_H_
 
 #include <string>
@@ -26,7 +27,7 @@ class IObserver {
    * @return std::string A summary or status update after processing the update.
    */
   virtual std::string Update(double dt) = 0;
- 
+
    /**
    * @brief Virtual method to get the ID of the observer.
    *
@@ -35,6 +36,14 @@ class IObserver {
    * @return int The unique ID of the observer.
    */
   virtual int GetId() = 0;
+
+  virtual double GetProgress() {return progress;}
+
+  virtual std::string GetType() {return type;}
+
+ protected:
+  double progress = 0;
+  std::string type = "";
 };
 
 #endif
