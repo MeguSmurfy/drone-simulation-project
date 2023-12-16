@@ -78,8 +78,16 @@ class SimulationModel {
   */
   const routing::IGraph* getGraph();
 
+ /**
+ * @brief Attaches an observer to the publisher pointer.
+ *
+ * @param int The ID of the observer to be attached.
+ */
   void Attach(int id);
 
+ /**
+ * @brief Detaches an observer from the publisher.
+ */
   void Detach();
 
   std::deque<Package*> scheduledDeliveries;

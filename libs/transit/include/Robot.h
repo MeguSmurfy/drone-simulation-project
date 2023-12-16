@@ -38,8 +38,20 @@ class Robot : public IEntity {
   */
   void receive(Package* p);
 
+ /**
+ * @brief Returns the Package the Robot is holding.
+ *
+ * @return Package* Returns a pointer to the Package object.
+ */
   Package* getPackage();
 
+ /**
+ * @brief Default value that indicates the Robot has a delivery
+ * to make.
+ *
+ * @return bool Returns boolean indicating the Robot is needed for
+ * delivery.
+ */
   bool requestedDelivery = true;
 
  protected:
