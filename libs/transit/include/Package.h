@@ -56,8 +56,14 @@ class Package : public IEntity {
   */
   void handOff();
 
+ /**
+ * @brief Returns the pointer to the owner of the package.
+ */
   Robot* getOwner();
 
+ /**
+ * @brief Default value that ensures the package 
+ */
   bool requiresDelivery = true;
 
  private:
