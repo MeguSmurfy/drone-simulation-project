@@ -58,11 +58,15 @@ class Package : public IEntity {
 
  /**
  * @brief Returns the pointer to the owner of the package.
+ *
+ * @return Returns a pointer to the Robot object owner.
  */
   Robot* getOwner();
 
  /**
- * @brief Default value that ensures the package 
+ * @brief Default value that ensures the package will be delivered.
+ *
+ * @return Returns boolean indicating if package will be delivered.
  */
   bool requiresDelivery = true;
 
@@ -72,4 +76,4 @@ class Package : public IEntity {
   Robot* owner = nullptr;
 };
 
-#endif  // PACKAGE_H
+#endif
