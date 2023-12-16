@@ -24,6 +24,11 @@ class PercentageDecorator : public IPercentageDecorator {
    */
   PercentageDecorator(IObserver* observer);
 
+ /**
+ * @brief Displays the percentage of distance traveled during this delivery.
+ *
+ * @ return std::string Returns 25%, 50%, or 75% progress.
+ */
   std::string DisplayPercentageThreshold(double dt);
 
  private:
