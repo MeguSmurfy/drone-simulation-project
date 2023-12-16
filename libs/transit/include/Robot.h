@@ -41,7 +41,7 @@ class Robot : public IEntity {
  /**
  * @brief Returns the Package the Robot is holding.
  *
- * @return Returns a pointer to the Package object.
+ * @return Package* Returns a pointer to the Package object.
  */
   Package* getPackage();
 
@@ -49,7 +49,7 @@ class Robot : public IEntity {
  * @brief Default value that indicates the Robot has a delivery
  * to make.
  *
- * @return Returns boolean indicating the Robot is needed for
+ * @return bool Returns boolean indicating the Robot is needed for
  * delivery.
  */
   bool requestedDelivery = true;
