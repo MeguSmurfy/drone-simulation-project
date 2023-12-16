@@ -32,7 +32,7 @@ class RobotObserver: public IObserver {
   /**
    * @brief Destructor for RobotObserver.
    */
-  ~RobotObserver() {}
+  ~RobotObserver();
  
   /**
    * @brief Updates the observer based on the observed Robot's state.
