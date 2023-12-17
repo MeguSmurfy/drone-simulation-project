@@ -53,12 +53,12 @@ class IPercentageDecorator : public IObserver {
   * @return std::string The percent value of the decorated object's 
   * progress
   */
-  virtual std::string DisplayPercentageThreshold(double dt) = 0;
+  virtual std::string DisplayPercentageThreshold() = 0;
 
   /**
   * @brief Returns the ID of the decorated observer
   *
-  *@return int The ID of the observer
+  * @return int The ID of the observer
   */
   virtual int GetId() {return observer->GetId();}
 };

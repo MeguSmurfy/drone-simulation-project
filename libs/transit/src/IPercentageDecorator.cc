@@ -9,7 +9,7 @@ IPercentageDecorator::~IPercentageDecorator() {
   if (observer) delete observer;
 }
 
-std::string IPercentageDecorator::Update(double dt) {
+std::string IPercentageDecorator::Update() {
   std::string message = observer->Update(dt) + DisplayPercentageThreshold(dt);
   return message;
 }

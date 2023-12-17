@@ -3,7 +3,7 @@
 PercentageDecorator::PercentageDecorator(IObserver* observer): 
     IPercentageDecorator(observer), quarter(false), half(false), threeQuarters(false) {}
 
-std::string PercentageDecorator::DisplayPercentageThreshold(double dt) {
+std::string PercentageDecorator::DisplayPercentageThreshold() {
     if (observer->GetType() != "Drone" && observer->GetType() != "Package") {
         return "";
     }
