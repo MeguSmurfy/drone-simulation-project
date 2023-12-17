@@ -10,6 +10,7 @@ To run this project you need to be able to connect to the UMN CSE Lab Machines i
 
 ```
 # Change to the project directory
+
 cd /<filepath>
 
 # Make the project
@@ -23,6 +24,8 @@ Once you have started the server, you can access the scheduling page at http://1
 ### Features of the simulation
 
 ### New feature (notifications)
+
+Our new feature we added to our project is a notifications system. This system includes notifications for the Drone, Package, and/or Robot through the scheduling page. Each notification informs the user on the visualization page of the object’s respective status, i.e. “Drone has picked up <package_name>” or “Drone is delivering <package_name>”. The notifications are displayed by default, informing the user of the status of their delivery. This feature adds to the existing work by making use of a new type of class/design system, the observer pattern, and gives the user a way to track the progress of the drone(s). This can be helpful if one drone has multiple deliveries scheduled, or if there are multiple active drones that the user will want to be aware of. This user feature is automatically applied and is not user interactable.
 
 ### Sprint Retrospective
 
