@@ -19,7 +19,7 @@ make -j
 ./build/bin/transit_service <port> /apps/transit_service/web/
 
 ```
-Once you have started the server, you can access the scheduling page at http://127.0.0.1:<port>/schedule.html and the visualization of the delivery at http://127.0.0.1:<port> with <port> being the same port number you chose to launch the server on.
+Once you have started the server, you can access the scheduling page at http://127.0.0.1:[port]/schedule.html and the visualization of the delivery at http://127.0.0.1:[port] with [port] being the same port number you chose to launch the server on.
 ### Features of the simulation
 
 ### New feature (notifications)
