@@ -18,9 +18,9 @@
  * extends the IObserver interface, providing specific functionalities for
  * package observation.
  */
-class PackageObserver: public IObserver {
+class PackageObserver : public IObserver {
  public:
-   /**
+  /**
    * @brief Constructs a PackageObserver object.
    *
    * Initializes a new instance of the PackageObserver class, setting the target
@@ -29,13 +29,13 @@ class PackageObserver: public IObserver {
    * @param package Pointer to the Package object to observe.
    */
   PackageObserver(Package* package);
- 
-   /**
+
+  /**
    * @brief Destructor for PackageObserver.
    */
   ~PackageObserver();
- 
-   /**
+
+  /**
    * @brief Updates the observer based on the observed Package's state.
    *
    * Called to update the state of the PackageObserver in response to changes
@@ -45,19 +45,20 @@ class PackageObserver: public IObserver {
    * @return std::string A summary of the current state of the observer.
    */
   std::string Update(double dt);
- 
-   /**
+
+  /**
    * @brief Retrieves the ID of the observed Package.
    *
    * @return int The ID of the Package being observed.
    */
   int GetId();
+
  private:
-  Package* package;        ///< Pointer to the observed Package.
-  std::string name;        ///< Name of the observer.
-  std::string ownerName;   ///< Name of the owner of the package.
-  bool setForDelivery;     ///< Flag indicating if the package is set for delivery.
-  bool delivered;          ///< Flag indicating if the package has been delivered.
+  Package* package;       ///< Pointer to the observed Package.
+  std::string name;       ///< Name of the observer.
+  std::string ownerName;  ///< Name of the owner of the package.
+  bool setForDelivery;  ///< Flag indicating if the package is set for delivery.
+  bool delivered;       ///< Flag indicating if the package has been delivered.
   bool setIntialPosition;
   Vector3 initPos;
 };

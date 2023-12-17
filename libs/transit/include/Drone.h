@@ -29,19 +29,19 @@ class Drone : public IEntity {
    * @brief Destructor
    */
   ~Drone();
-  
+
   /**
-  * @brief Returns the private boolean indicating
-  * if the drone is available or occupied.
-  */
+   * @brief Returns the private boolean indicating
+   * if the drone is available or occupied.
+   */
   bool getAvailability();
- 
+
   /**
-  * @brief Returns a Package object provided the drone
-  * is carrying one.
-  */
+   * @brief Returns a Package object provided the drone
+   * is carrying one.
+   */
   Package* getPackage();
-  
+
   /**
    * @brief Gets the next delivery in the scheduler.
    */

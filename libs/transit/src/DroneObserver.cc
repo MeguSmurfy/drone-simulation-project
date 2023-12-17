@@ -2,7 +2,7 @@
 
 DroneObserver::DroneObserver(Drone* drone) {
   this->drone = drone;
-  name = (std::string) drone->getDetails()["name"];
+  name = (std::string)drone->getDetails()["name"];
   gettingToPackage = false;
   pickedUp = false;
   gettingToDestination = false;
@@ -18,10 +18,11 @@ DroneObserver::~DroneObserver() {
 
 std::string DroneObserver::Update(double dt) {
   if (!drone->getAvailability()) {
-    progress = (drone->getPosition().dist(initPos))/(drone->getPackage()->getDestination().dist(initPos));
+    progress = (drone->getPosition().dist(initPos)) /
+               (drone->getPackage()->getDestination().dist(initPos));
     if (!pickedUp) {
       if (!gettingToPackage) {
-        packageName = (std::string) drone->getPackage()->getDetails()["name"];
+        packageName = (std::string)drone->getPackage()->getDetails()["name"];
         gettingToPackage = true;
         return name + " is going to pick up the package " + packageName + ".\n";
       }
@@ -43,13 +44,12 @@ std::string DroneObserver::Update(double dt) {
     initPos = drone->getPosition();
     if (arrived) {
       arrived = false;
-      return name + " has delivered " + packageName + " to the final destination.\n";
+      return name + " has delivered " + packageName +
+             " to the final destination.\n";
     }
     packageName = "";
   }
   return "";
 }
 
-int DroneObserver::GetId() {
-  return drone->getId();
-}
+int DroneObserver::GetId() { return drone->getId(); }

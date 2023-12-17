@@ -12,7 +12,7 @@
  * @brief Decorator class for augmenting entity functionality.
  *
  * PercentageDecorator is a class that extends the functionality of an entity
- * by decorating it with a percentage tracker of the distance the entity has 
+ * by decorating it with a percentage tracker of the distance the entity has
  * traveled during the current delivery.
  */
 class PercentageDecorator : public IPercentageDecorator {
@@ -24,11 +24,11 @@ class PercentageDecorator : public IPercentageDecorator {
    */
   PercentageDecorator(IObserver* observer);
 
- /**
- * @brief Displays the percentage of distance traveled during this delivery.
- *
- * @return std::string Returns 25%, 50%, or 75% progress.
- */
+  /**
+   * @brief Displays the percentage of distance traveled during this delivery.
+   *
+   * @return std::string Returns 25%, 50%, or 75% progress.
+   */
   std::string DisplayPercentageThreshold();
 
  private:

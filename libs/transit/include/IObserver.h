@@ -17,7 +17,7 @@
  */
 class IObserver {
  public:
-   /**
+  /**
    * @brief Virtual update method to be implemented by concrete observers.
    *
    * This method is called to update the observer with specifics occuring in
@@ -28,28 +28,28 @@ class IObserver {
    */
   virtual std::string Update(double dt) = 0;
 
-   /**
+  /**
    * @brief Virtual method to get the ID of the observer.
    *
-   * This method returns the observer's ID. 
+   * This method returns the observer's ID.
    *
    * @return int The unique ID of the observer.
    */
   virtual int GetId() = 0;
-   /**
-   * @brief Virtual method to return the progress of the 
+  /**
+   * @brief Virtual method to return the progress of the
    * observed object.
    *
    * @return double The progress of the observed object.
    */
-  virtual double GetProgress() {return progress;}
-   /**
+  virtual double GetProgress() { return progress; }
+  /**
    * @brief Virtual method to return the type of the
    * observer.
    *
    * @return std::string The type of the observer.
    */
-  virtual std::string GetType() {return type;}
+  virtual std::string GetType() { return type; }
 
  protected:
   double progress = 0;
