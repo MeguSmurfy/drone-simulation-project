@@ -49,7 +49,3 @@ void Publisher::Attach(int id) {
 void Publisher::Detach() {
   attachedObserver = -1;
 }
-
-int Publisher::getObserverCount() {
-  return observers.size();
-}

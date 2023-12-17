@@ -75,13 +75,7 @@ class Publisher {
    * Removes the current primary observer attachment, if any.
    */
   void Detach();
- 
-  /**
-   * @brief Retrieves the count of observers attached to the Publisher.
-   *
-   * @return int The number of observers currently registered with the Publisher.
-   */
-  int getObserverCount();
+  
  private:
   int attachedObserver;
   std::vector<IObserver*> observers;
