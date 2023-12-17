@@ -36,9 +36,19 @@ class IObserver {
    * @return int The unique ID of the observer.
    */
   virtual int GetId() = 0;
-
+   /**
+   * @brief Virtual method to return the progress of the 
+   * observed object.
+   *
+   * @return double The progress of the observed object.
+   */
   virtual double GetProgress() {return progress;}
-
+   /**
+   * @brief Virtual method to return the type of the
+   * observer.
+   *
+   * @return std::string The type of the observer.
+   */
   virtual std::string GetType() {return type;}
 
  protected:

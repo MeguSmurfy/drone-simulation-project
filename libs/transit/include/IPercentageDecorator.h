@@ -13,8 +13,8 @@
  * @brief Interface for a decorator class that extends IObserver functionality.
  *
  * IPercentageDecorator is an interface that extends the IObserver interface, adding 
- * functionality specific to percentage calculations and reporting. It follows the 
- * Decorator Design Pattern, allowing dynamic addition of responsibilities to objects.
+ * functionality specific to percentage reports. It follows the 
+ * Decorator Design Pattern, allowing dynamic addition of attributes to objects.
  */
 class IPercentageDecorator : public IObserver {
  protected:
@@ -47,8 +47,19 @@ class IPercentageDecorator : public IObserver {
    */
   virtual std::string Update(double dt);
 
+  /**
+  * @brief Displays the Percentage of the object's progress.
+  *
+  * @return std::string The percent value of the decorated object's 
+  * progress
+  */
   virtual std::string DisplayPercentageThreshold(double dt) = 0;
 
+  /**
+  * @brief Returns the ID of the decorated observer
+  *
+  *@return int The ID of the observer
+  */
   virtual int GetId() {return observer->GetId();}
 };
 
