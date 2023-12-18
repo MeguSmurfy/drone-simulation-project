@@ -36,7 +36,7 @@ Our new feature we added to our project is a notifications system. This system i
 
 We organized our sprints into two large blocks in which we would firstly create the UML and implement the observer classes (Sprint #1) then we would integrate the classes, document, cpplint, and complete the writeup (Sprint #2). This worked for us in keeping our project broken down into smaller manageable tasks, but we did not tend to follow the order of our sprint tasks. Due to our respective schedules, asynchronous work was a necessity. This meant that we could not be editing the same files simultaneously unless we were actively working together, reducing the efficacy of joint coding. Something that we could have done differently to improve upon our sprints would be to follow our outline more strictly and find more times to collaborate in-person instead of asynchronously on different sections.
 
-Here is the Youtube link:
+Here is the Youtube link: https://www.youtube.com/watch?v=YWDl04JR2Es
 
 Here is the Docker link: https://hub.docker.com/repository/docker/megusmurfy/homework4_drone_simulation/general
 
