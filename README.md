@@ -1,6 +1,6 @@
 # Drone Simulation Project
 
-Team 69, Section 010 - Dinh Quan Tran (tran1178) and Riley Findorff (findo009)
+Author: Dinh Quan Tran and Riley Findorff.
 
 ### Introduction 
 
