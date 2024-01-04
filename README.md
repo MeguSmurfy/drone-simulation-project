@@ -1,4 +1,4 @@
-# Team-010-69-hw4
+# Drone Simulation Project
 
 Team 69, Section 010 - Dinh Quan Tran (tran1178) and Riley Findorff (findo009)
 
